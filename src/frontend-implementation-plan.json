@@ -1,0 +1,109 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add care activity logging system to frontend",
+  "requirements": [
+    {
+      "id": "REQ-21",
+      "summary": "Create CareForm component with text input for care type and submit button",
+      "acceptanceCriteria": [
+        "CareForm component has a text input for care type",
+        "Component includes a submit button",
+        "Form resets after successful submission",
+        "Component uses useLogCareActivity mutation hook"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CareForm.tsx",
+          "operation": "create",
+          "description": "Create a form component for logging care activities with a text input field for care type and submit button. Follow the same patterns as InjuryForm and FeedingForm components. Use useLogCareActivity mutation hook for submission. Reset form after successful submission. Include loading state during submission."
+        }
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "summary": "Create CareList component to display care activities with timestamps",
+      "acceptanceCriteria": [
+        "CareList component displays care activities with timestamps",
+        "Component shows loading and empty states",
+        "Styling matches existing list components (InjuryList, FeedingList, MedicineDosageList)",
+        "Component uses useCareActivities query hook"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CareList.tsx",
+          "operation": "create",
+          "description": "Create a list component that displays care activities for a horse with timestamps and care type descriptions. Use useCareActivities query hook to fetch data. Follow the same styling patterns as InjuryList, FeedingList, and MedicineDosageList components. Include loading state, empty state message, and use formatTimestamp utility for time display. Display care type text prominently."
+        }
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "summary": "Add useLogCareActivity mutation and useCareActivities query hooks",
+      "acceptanceCriteria": [
+        "useLogCareActivity mutation hook is exported from useQueries.ts",
+        "useCareActivities query hook is exported from useQueries.ts",
+        "Hooks follow the same patterns as existing hooks",
+        "Proper cache invalidation is implemented on mutation success"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add useLogCareActivity mutation hook that calls backend.logCareActivity with horseId and careType parameters. Add useCareActivities query hook that calls backend.getCareActivitiesForHorse with horseId parameter. Follow the same patterns as existing injury, feeding, and medicine hooks. Implement proper cache invalidation on mutation success to refresh both the care activities query and the activity timeline query."
+        }
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "summary": "Add Care tab to HorseDetailPage with CareForm and CareList components",
+      "acceptanceCriteria": [
+        "Care tab is added to HorseDetailPage tabs",
+        "Tab displays CareForm and CareList components",
+        "Tab positioning matches existing tab layout",
+        "Tab label reads 'Care'"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HorseDetailPage.tsx",
+          "operation": "modify",
+          "description": "Add a new Care tab to the existing tabbed interface in HorseDetailPage. Position it consistently with the existing Injuries, Feeding, and Medicine tabs. The tab should display both CareForm and CareList components, following the same layout pattern as the other tabs. Set the tab label to 'Care'. Import the newly created CareForm and CareList components."
+        }
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "summary": "Update useActivityTimeline hook to include care activities in merged timeline",
+      "acceptanceCriteria": [
+        "useActivityTimeline hook fetches care activities using useCareActivities",
+        "Care activities are merged into the unified timeline",
+        "Care activities use type 'care' in the activity object",
+        "Timeline remains sorted by timestamp descending"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useActivityTimeline.ts",
+          "operation": "modify",
+          "description": "Update the useActivityTimeline hook to fetch care activities using the useCareActivities query hook. Merge care activities into the unified timeline array with type set to 'care' and use the careType field for the description. Ensure the merged timeline remains sorted by timestamp in descending order. Follow the same pattern used for injuries, feeding events, and medicine dosages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "summary": "Update ActivityTimelineItem component to handle care activity type",
+      "acceptanceCriteria": [
+        "ActivityTimelineItem component handles 'care' activity type",
+        "Care activities display with an appropriate icon from lucide-react",
+        "Care activity badge and styling match other activity types",
+        "Care type description is displayed clearly"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ActivityTimelineItem.tsx",
+          "operation": "modify",
+          "description": "Add support for 'care' activity type in ActivityTimelineItem component. Use an appropriate icon from lucide-react (such as Heart or Stethoscope) to represent care activities. Apply badge styling consistent with other activity types (injury, feeding, medicine). Display the care type description clearly in the activity card. Follow the existing patterns for rendering different activity types."
+        }
+      ]
+    }
+  ]
+}

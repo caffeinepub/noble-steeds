@@ -1,0 +1,150 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-21T23:44:02.349Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 11,
+    "implemented": 6,
+    "items": [
+      {
+        "id": "REQ-16",
+        "summary": "Add a CareActivity type to the backend with fields for id (Nat), horseId (Nat), careType (Text for user-entered care descriptions like 'thrush check', 'bath', 'tail wash', 'fungus check', 'hives'), timestamp (Int for nanoseconds), and userId (Principal)",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-17",
+        "summary": "Add a stable careActivities HashMap in the backend actor to store care activities with auto-incrementing IDs, following the same pattern as injuries, feedingEvents, and medicineDosages",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Create a logCareActivity backend function that accepts horseId and careType text, validates the horse exists, creates a new care activity record with the current timestamp, stores it in careActivities HashMap, and returns the created activity",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-19",
+        "summary": "Create a getCareActivitiesForHorse backend query function that accepts a horseId and returns an array of all care activities for that horse, sorted by timestamp descending",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-20",
+        "summary": "Update the deleteHorse backend function to cascade delete all care activities associated with the horse being deleted",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-21",
+        "summary": "Create a CareForm component in frontend/src/components/CareForm.tsx with a text input field for care type and a submit button that calls a useLogCareActivity mutation hook to create new care activity records",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/CareForm.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/CareForm.tsx"
+        ]
+      },
+      {
+        "id": "REQ-22",
+        "summary": "Create a CareList component in frontend/src/components/CareList.tsx that displays care activities for a horse with timestamps and care type descriptions, following the same pattern and styling as InjuryList, FeedingList, and MedicineDosageList",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/CareList.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/CareList.tsx"
+        ]
+      },
+      {
+        "id": "REQ-23",
+        "summary": "Add useLogCareActivity mutation hook and useCareActivities query hook to frontend/src/hooks/useQueries.ts following the same patterns as injury, feeding, and medicine hooks with proper cache invalidation",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useQueries.ts"
+        ]
+      },
+      {
+        "id": "REQ-24",
+        "summary": "Add a Care tab to the HorseDetailPage component that displays the CareForm and CareList components, positioned consistently with the existing Injuries, Feeding, and Medicine tabs",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/HorseDetailPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/HorseDetailPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-25",
+        "summary": "Update the useActivityTimeline hook in frontend/src/hooks/useActivityTimeline.ts to include care activities in the merged timeline, using type 'care' and the careType field for description",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useActivityTimeline.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useActivityTimeline.ts"
+        ]
+      },
+      {
+        "id": "REQ-26",
+        "summary": "Update the ActivityTimelineItem component in frontend/src/components/ActivityTimelineItem.tsx to handle and display care activity items with an appropriate icon (e.g., Heart or Stethoscope) and styling consistent with other activity types",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/ActivityTimelineItem.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/ActivityTimelineItem.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/ActivityTimeline.tsx",
+    "frontend/src/components/ActivityTimelineItem.tsx",
+    "frontend/src/components/CareForm.tsx",
+    "frontend/src/components/CareList.tsx",
+    "frontend/src/components/FeedingForm.tsx",
+    "frontend/src/components/FeedingList.tsx",
+    "frontend/src/components/HorseCard.tsx",
+    "frontend/src/components/HorseForm.tsx",
+    "frontend/src/components/HorseList.tsx",
+    "frontend/src/components/InjuryForm.tsx",
+    "frontend/src/components/InjuryList.tsx",
+    "frontend/src/components/MedicineDosageForm.tsx",
+    "frontend/src/components/MedicineDosageList.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActivityTimeline.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/lib/utils.ts",
+    "frontend/src/pages/ActivityTimelinePage.tsx",
+    "frontend/src/pages/HorseDetailPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

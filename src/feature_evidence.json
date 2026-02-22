@@ -1,0 +1,119 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-careform-component-in-frontend-src-components-careform-tsx-with-a-text-input-field-for-care-type-and-a-submit-button-that-calls-a-uselogcareactivity-mutation-hook-to-create-new-care-activity-records",
+      "featureTitle": "Create a CareForm component in frontend/src/components/CareForm.tsx with a text input field for care type and a submit button that calls a useLogCareActivity mutation hook to create new care activity records",
+      "files": [
+        "frontend/src/components/CareForm.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-21"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-carelist-component-in-frontend-src-components-carelist-tsx-that-displays-care-activities-for-a-horse-with-timestamps-and-care-type-descriptions-following-the-same-pattern-and-styling-as-injurylist-feedinglist-and-medicinedosagelist",
+      "featureTitle": "Create a CareList component in frontend/src/components/CareList.tsx that displays care activities for a horse with timestamps and care type descriptions, following the same pattern and styling as InjuryList, FeedingList, and MedicineDosageList",
+      "files": [
+        "frontend/src/components/CareList.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-22"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-uselogcareactivity-mutation-hook-and-usecareactivities-query-hook-to-frontend-src-hooks-usequeries-ts-following-the-same-patterns-as-injury-feeding-and-medicine-hooks-with-proper-cache-invalidation",
+      "featureTitle": "Add useLogCareActivity mutation hook and useCareActivities query hook to frontend/src/hooks/useQueries.ts following the same patterns as injury, feeding, and medicine hooks with proper cache invalidation",
+      "files": [
+        "frontend/src/hooks/useQueries.ts"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-23"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-care-tab-to-the-horsedetailpage-component-that-displays-the-careform-and-carelist-components-positioned-consistently-with-the-existing-injuries-feeding-and-medicine-tabs",
+      "featureTitle": "Add a Care tab to the HorseDetailPage component that displays the CareForm and CareList components, positioned consistently with the existing Injuries, Feeding, and Medicine tabs",
+      "files": [
+        "frontend/src/pages/HorseDetailPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-24"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-useactivitytimeline-hook-in-frontend-src-hooks-useactivitytimeline-ts-to-include-care-activities-in-the-merged-timeline-using-type-care-and-the-caretype-field-for-description",
+      "featureTitle": "Update the useActivityTimeline hook in frontend/src/hooks/useActivityTimeline.ts to include care activities in the merged timeline, using type 'care' and the careType field for description",
+      "files": [
+        "frontend/src/hooks/useActivityTimeline.ts"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-25"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-activitytimelineitem-component-in-frontend-src-components-activitytimelineitem-tsx-to-handle-and-display-care-activity-items-with-an-appropriate-icon-e-g-heart-or-stethoscope-and-styling-consistent-with-other-activity-types",
+      "featureTitle": "Update the ActivityTimelineItem component in frontend/src/components/ActivityTimelineItem.tsx to handle and display care activity items with an appropriate icon (e.g., Heart or Stethoscope) and styling consistent with other activity types",
+      "files": [
+        "frontend/src/components/ActivityTimelineItem.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-26"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

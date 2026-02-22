@@ -1,0 +1,204 @@
+{
+  "kind": "build_request",
+  "title": "Add care activity logging system",
+  "projectName": "Noble Steeds",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-16",
+      "text": "Add a CareActivity type to the backend with fields for id (Nat), horseId (Nat), careType (Text for user-entered care descriptions like 'thrush check', 'bath', 'tail wash', 'fungus check', 'hives'), timestamp (Int for nanoseconds), and userId (Principal)",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ],
+        "quotes": [
+          "add a section labeled care letting you type in the kind of care. thrush check, bath, tail wash, fungus check, hives etc"
+        ]
+      },
+      "acceptanceCriteria": [
+        "CareActivity type is defined in backend/main.mo",
+        "Type includes id, horseId, careType, timestamp, and userId fields",
+        "careType field stores user-entered text descriptions"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Add a stable careActivities HashMap in the backend actor to store care activities with auto-incrementing IDs, following the same pattern as injuries, feedingEvents, and medicineDosages",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "careActivities stable variable is added to main actor",
+        "nextCareActivityId counter is implemented for auto-incrementing IDs",
+        "Storage follows the same pattern as existing data structures"
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Create a logCareActivity backend function that accepts horseId and careType text, validates the horse exists, creates a new care activity record with the current timestamp, stores it in careActivities HashMap, and returns the created activity",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "logCareActivity function is public and shared",
+        "Function validates horse existence before creating activity",
+        "Function captures caller principal for userId",
+        "Function returns the created CareActivity record"
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Create a getCareActivitiesForHorse backend query function that accepts a horseId and returns an array of all care activities for that horse, sorted by timestamp descending",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "getCareActivitiesForHorse function is public and shared query",
+        "Function filters care activities by horseId",
+        "Results are sorted by timestamp in descending order"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Update the deleteHorse backend function to cascade delete all care activities associated with the horse being deleted",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "deleteHorse function removes all care activities for the deleted horse",
+        "Cascade deletion follows the same pattern as injuries, feedingEvents, and medicineDosages"
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "text": "Create a CareForm component in frontend/src/components/CareForm.tsx with a text input field for care type and a submit button that calls a useLogCareActivity mutation hook to create new care activity records",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ],
+        "quotes": [
+          "add a section labeled care letting you type in the kind of care"
+        ]
+      },
+      "acceptanceCriteria": [
+        "CareForm component has a text input for care type",
+        "Component includes a submit button",
+        "Form resets after successful submission",
+        "Component uses useLogCareActivity mutation hook"
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "text": "Create a CareList component in frontend/src/components/CareList.tsx that displays care activities for a horse with timestamps and care type descriptions, following the same pattern and styling as InjuryList, FeedingList, and MedicineDosageList",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "CareList component displays care activities with timestamps",
+        "Component shows loading and empty states",
+        "Styling matches existing list components (InjuryList, FeedingList, MedicineDosageList)",
+        "Component uses useCareActivities query hook"
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "text": "Add useLogCareActivity mutation hook and useCareActivities query hook to frontend/src/hooks/useQueries.ts following the same patterns as injury, feeding, and medicine hooks with proper cache invalidation",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "useLogCareActivity mutation hook is exported from useQueries.ts",
+        "useCareActivities query hook is exported from useQueries.ts",
+        "Hooks follow the same patterns as existing hooks",
+        "Proper cache invalidation is implemented on mutation success"
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "text": "Add a Care tab to the HorseDetailPage component that displays the CareForm and CareList components, positioned consistently with the existing Injuries, Feeding, and Medicine tabs",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ],
+        "quotes": [
+          "add a section labeled care"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Care tab is added to HorseDetailPage tabs",
+        "Tab displays CareForm and CareList components",
+        "Tab positioning matches existing tab layout",
+        "Tab label reads 'Care'"
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "text": "Update the useActivityTimeline hook in frontend/src/hooks/useActivityTimeline.ts to include care activities in the merged timeline, using type 'care' and the careType field for description",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "useActivityTimeline hook fetches care activities using useCareActivities",
+        "Care activities are merged into the unified timeline",
+        "Care activities use type 'care' in the activity object",
+        "Timeline remains sorted by timestamp descending"
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "text": "Update the ActivityTimelineItem component in frontend/src/components/ActivityTimelineItem.tsx to handle and display care activity items with an appropriate icon (e.g., Heart or Stethoscope) and styling consistent with other activity types",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "ActivityTimelineItem component handles 'care' activity type",
+        "Care activities display with an appropriate icon from lucide-react",
+        "Care activity badge and styling match other activity types",
+        "Care type description is displayed clearly"
+      ]
+    }
+  ],
+  "constraints": [
+    "Follow the existing single-actor Motoko architecture in backend/main.mo",
+    "Maintain consistency with existing data structures (injuries, feedingEvents, medicineDosages)",
+    "Use the same patterns for React Query hooks and cache invalidation as existing hooks",
+    "Preserve the equestrian-inspired visual theme with earthy tones"
+  ],
+  "nonGoals": [
+    "Predefined dropdown of care types (user should be able to type any care description)",
+    "Editing or deleting individual care activities",
+    "Filtering or searching care activities",
+    "Adding additional fields beyond careType (like notes or duration)"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 9,
+  "summary": "Horse care management application named Noble Steeds with multiple horse profiles, injury logs, feed tracking, medicine dosage tracking, and chronological activity view",
+  "architectural_notes": [
+    "Multi-horse management system with individual profiles",
+    "Image upload and storage for horse profile photos",
+    "Centralized activity timeline sorted by date"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-horse-management-system-that-allows-users-to-add-multiple-horses-with-a-name-field-and-profile-photo-upload-capability",
+      "title": "Create a horse management system that allows users to add multiple horses with a name field and profile photo upload capability",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-care-sections-system-where-users-can-create-different-types-of-care-sections-and-assign-medicine-and-supplements-to-each-section",
+      "title": "Implement a care sections system where users can create different types of care sections and assign medicine and supplements to each section",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-injury-log-system-where-users-can-record-and-track-injuries-for-each-horse",
+      "title": "Create an injury log system where users can record and track injuries for each horse",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-feed-tracker-that-allows-users-to-log-feeding-events-and-track-feed-types-and-amounts-for-each-horse",
+      "title": "Build a feed tracker that allows users to log feeding events and track feed types and amounts for each horse",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-medicine-dosage-tracking-system-where-users-can-record-medicine-administration-with-dosage-information-and-timestamps",
+      "title": "Implement a medicine dosage tracking system where users can record medicine administration with dosage information and timestamps",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-unified-chronological-activity-tab-that-displays-all-care-activities-injuries-feeding-medicine-administration-care-sections-sorted-by-date-for-easy-tracing",
+      "title": "Create a unified chronological activity tab that displays all care activities (injuries, feeding, medicine administration, care sections) sorted by date for easy tracing",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-cohesive-visual-theme-for-the-noble-steeds-application-using-an-equestrian-inspired-color-palette-with-earthy-natural-tones-deep-browns-forest-greens-warm-tans-and-elegant-typography-that-conveys-professionalism-and-care-with-spacious-layouts-that-emphasize-clarity-and-organization",
+      "title": "Design a cohesive visual theme for the Noble Steeds application using an equestrian-inspired color palette with earthy, natural tones (deep browns, forest greens, warm tans) and elegant typography that conveys professionalism and care, with spacious layouts that emphasize clarity and organization",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-usedeletehorse-mutation-hook-in-usequeries-ts-that-calls-the-backend-deletehorse-function-and-invalidates-the-horses-query-on-success",
+      "title": "Create a useDeleteHorse mutation hook in useQueries.ts that calls the backend deleteHorse function and invalidates the horses query on success",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-delete-button-to-each-horsecard-component-that-triggers-horse-deletion-with-confirmation-dialog",
+      "title": "Add a delete button to each HorseCard component that triggers horse deletion with confirmation dialog",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-caresectionform-and-caresectionlist-components-from-the-horsedetailpage-component-so-that-the-care-sections-tab-is-no-longer-displayed-or-accessible",
+      "title": "Remove the CareSectionForm and CareSectionList components from the HorseDetailPage component so that the care sections tab is no longer displayed or accessible",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-care-section-related-query-and-mutation-hooks-from-usequeries-ts-including-usecaresections-usecreatecaresection-useaddmedicinetosection-and-useaddsupplementtosection",
+      "title": "Remove care section related query and mutation hooks from useQueries.ts including useCareSections, useCreateCareSection, useAddMedicineToSection, and useAddSupplementToSection",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-horsecard-delete-confirmation-dialog-text-to-remove-mention-of-care-sections-from-the-warning-message-about-cascading-deletion",
+      "title": "Update the HorseCard delete confirmation dialog text to remove mention of care sections from the warning message about cascading deletion",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-careform-component-in-frontend-src-components-careform-tsx-with-a-text-input-field-for-care-type-and-a-submit-button-that-calls-a-uselogcareactivity-mutation-hook-to-create-new-care-activity-records",
+      "title": "Create a CareForm component in frontend/src/components/CareForm.tsx with a text input field for care type and a submit button that calls a useLogCareActivity mutation hook to create new care activity records",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-carelist-component-in-frontend-src-components-carelist-tsx-that-displays-care-activities-for-a-horse-with-timestamps-and-care-type-descriptions-following-the-same-pattern-and-styling-as-injurylist-feedinglist-and-medicinedosagelist",
+      "title": "Create a CareList component in frontend/src/components/CareList.tsx that displays care activities for a horse with timestamps and care type descriptions, following the same pattern and styling as InjuryList, FeedingList, and MedicineDosageList",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-uselogcareactivity-mutation-hook-and-usecareactivities-query-hook-to-frontend-src-hooks-usequeries-ts-following-the-same-patterns-as-injury-feeding-and-medicine-hooks-with-proper-cache-invalidation",
+      "title": "Add useLogCareActivity mutation hook and useCareActivities query hook to frontend/src/hooks/useQueries.ts following the same patterns as injury, feeding, and medicine hooks with proper cache invalidation",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-care-tab-to-the-horsedetailpage-component-that-displays-the-careform-and-carelist-components-positioned-consistently-with-the-existing-injuries-feeding-and-medicine-tabs",
+      "title": "Add a Care tab to the HorseDetailPage component that displays the CareForm and CareList components, positioned consistently with the existing Injuries, Feeding, and Medicine tabs",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-useactivitytimeline-hook-in-frontend-src-hooks-useactivitytimeline-ts-to-include-care-activities-in-the-merged-timeline-using-type-care-and-the-caretype-field-for-description",
+      "title": "Update the useActivityTimeline hook in frontend/src/hooks/useActivityTimeline.ts to include care activities in the merged timeline, using type 'care' and the careType field for description",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-activitytimelineitem-component-in-frontend-src-components-activitytimelineitem-tsx-to-handle-and-display-care-activity-items-with-an-appropriate-icon-e-g-heart-or-stethoscope-and-styling-consistent-with-other-activity-types",
+      "title": "Update the ActivityTimelineItem component in frontend/src/components/ActivityTimelineItem.tsx to handle and display care activity items with an appropriate icon (e.g., Heart or Stethoscope) and styling consistent with other activity types",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-2",
+      "summary": "Add multiple horses with photo upload capability for profile pictures",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Unified chronological tab to trace all activities by date",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Injury log tracking system",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Feed tracker for monitoring horse feeding",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Medicine dosage tracking and management",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add ability to remove/delete horses from the list",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add a deleteHorse backend function that removes a horse and all its associated data (care sections, injuries, feeding events, medicine dosages) from storage",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Remove all care section related backend functions including createCareSection, getCareSectionsForHorse, addMedicineToSection, addSupplementToSection, and delete all care section storage maps (careSections, careSectionMedicines, careSectionSupplements)",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Update the deleteHorse backend function to remove the cascading deletion of care sections since care sections are being removed from the system",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Add a care section allowing users to log custom care activities (thrush check, bath, tail wash, fungus check, hives, etc.)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Add a CareActivity type to the backend with fields for id (Nat), horseId (Nat), careType (Text for user-entered care descriptions like 'thrush check', 'bath', 'tail wash', 'fungus check', 'hives'), timestamp (Int for nanoseconds), and userId (Principal)",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Add a stable careActivities HashMap in the backend actor to store care activities with auto-incrementing IDs, following the same pattern as injuries, feedingEvents, and medicineDosages",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Create a logCareActivity backend function that accepts horseId and careType text, validates the horse exists, creates a new care activity record with the current timestamp, stores it in careActivities HashMap, and returns the created activity",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Create a getCareActivitiesForHorse backend query function that accepts a horseId and returns an array of all care activities for that horse, sorted by timestamp descending",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Update the deleteHorse backend function to cascade delete all care activities associated with the horse being deleted",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Noble Steeds",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
